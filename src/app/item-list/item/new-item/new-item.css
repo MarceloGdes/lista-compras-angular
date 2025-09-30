@@ -1,0 +1,96 @@
+dialog {
+  background-color: var(--surface-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+.modal-title {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+/* Inputs e labels */
+form p {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+label {
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+input {
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--border-radius);
+  border: 1px solid #333;
+  background-color: #2a2a2a;
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  background-color: #333;
+}
+
+/* Ações */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.actions button {
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  color: #fff;
+  transition: var(--transition);
+}
+
+/* Botão cancelar */
+.actions button[type="button"] {
+  background-color: #555;
+}
+
+.actions button[type="button"]:hover {
+  background-color: #444;
+}
+
+/* Botão adicionar */
+.actions button[type="submit"] {
+  background-color: var(--success-color);
+}
+
+.actions button[type="submit"]:hover {
+  background-color: #219150;
+}
+
+/* Animação */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg-color: #121212;
+  --surface-color: #1e1e1e;
+  --text-color: #e0e0e0;
+  --text-muted: #aaaaaa;
+  --primary-color: #4cafef;
+  --danger-color: #e74c3c;
+  --success-color: #27ae60;
+  --warning-color: #f1c40f;
+  --border-radius: 6px;
+  --transition: 0.2s ease-in-out;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 2rem;
+}
+
+/* Reset tabelas e botões globais */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  transition: var(--transition);
+}

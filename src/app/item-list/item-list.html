@@ -1,0 +1,73 @@
+@if (isAddingItem) {
+  <app-new-item
+    (close)="onCloseAddItem()"
+    [item]="editingItem"/>
+}
+
+<section>
+  <div class="table-container">
+    <header>
+      <button class="btn-add" (click)="onStartAddItem()">Adicionar Item</button>
+      <!--  NgModel faz com que Quando  troca a opção do <select>, o valor de filtro no TS muda automaticamente.
+      Se  mudar filtro no TS, o <select> também atualiza sozinho.   -->
+      <select [(ngModel)]="filtro">
+        <option value="todos">Todos</option>
+        <option value="naoComprados">A Comprar</option>
+        <option value="comprados">Comprados</option>
+      </select>
+    </header>
+    <table>
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Comprado</th>
+        <th>Nome</th>
+        <th>Quantidade</th>
+        <th>Unidade</th>
+        <th>Categoria</th>
+        <th>Ações</th>
+      </tr>
+      </thead>
+      <tbody>
+        @for (item of itensFiltrados; track item.id; let i = $index) {
+          <tr [class.completed]="item.stComprado">
+            <td>{{ i + 1 }}</td>
+            <td>
+              <input type="checkbox"
+                     [checked]="item.stComprado"
+                     (click)="onCheckItem(item.id)">
+            </td>
+            <td [class]="item.stComprado ? 'item-name' : ''">
+              {{item.nome}}
+            </td>
+            <td>{{item.quantidade}}</td>
+            <td>{{item.unidade}}</td>
+            <td>
+              <span class="categoria-badge">
+                {{item.categoria}}
+              </span>
+            </td>
+            <td>
+              <div class="action-buttons">
+                <button class="btn-edit"  (click)="onEditItem(item.id)">Editar</button>
+                <button class="btn-delete" (click)="onDeleteItem(item.id)">Excluir</button>
+              </div>
+            </td>
+          </tr>
+        }
+      </tbody>
+      <tfoot>
+      <tr>
+        <td colspan="7" class="footer-row">
+          <div class="footer-stats">
+            <span>Total de Itens: <strong>{{ itens.length }}</strong></span>
+            <span>Total Itens Comprados: <strong>{{ itensCompados.length }}</strong></span>
+            <span>Total Itens não comprados: <strong>{{ itensNaoComprados.length }}</strong></span>
+          </div>
+        </td>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+
+</section>
