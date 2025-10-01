@@ -66,6 +66,4 @@ export class ItemList {
   onDeleteItem(id: string) {
     this.itemService.removeIten(id);
   }
-
-  protected readonly length = length;
 }
